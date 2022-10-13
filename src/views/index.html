@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h2>port99 지원 현황을 내 이메일로 받아보세요!</h2>
+        이메일<input type="text">
+        패스워드 <input type="password">
+        <button>제출</button>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    const $email = document.querySelector(`[type="text"]`);
+    const $password = document.querySelector(`[type="password"]`);
+    const $btn = document.querySelector("button");
+
+    let flag = true;
+
+    $btn.addEventListener("click", async function(e) {
+        if (!flag) return alert ("잠시만 기다려주세요.");
+
+        alert("잠시만 기다려주세요. 5초 소요 예정입니다!");
+
+        flag = false;
+
+        try {
+            const req = await axios.post("/", {
+            email: $email.value,
+            password: $password.value,
+        });
+
+            if (req.data === "성공!") {
+                alert(`${$email.value} 메일 수신함을 확인해보세요!`);
+                location.href = "/success";
+                flag = true;
+        }   
+        } catch (err) {
+            alert("이메일과 비밀번호를 확인해주세요!"); 
+            console.error(err);
+            flag = true;
+        }
+    });
+</script>
+</body>
+</html>

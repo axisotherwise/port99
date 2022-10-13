@@ -1,0 +1,28 @@
+{
+  "name": "port99",
+  "version": "1.0.0",
+  "description": "port99 application status",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon ./src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axisotherwise/port99.git"
+  },
+  "keywords": [
+    "crawling"
+  ],
+  "author": "axisotherwise",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/axisotherwise/port99/issues"
+  },
+  "homepage": "https://github.com/axisotherwise/port99#readme",
+  "dependencies": {
+    "nodemailer": "^6.8.0",
+    "nunjucks": "^3.2.3",
+    "puppeteer": "^18.2.1"
+  }
+}
